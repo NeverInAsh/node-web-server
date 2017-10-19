@@ -43,9 +43,9 @@ app.use((req, res, next) =>{
 });
 
 //middleware for maintenance page
-app.use((req, res, next) =>{
-	res.render('maintenance.hbs');
-});
+// app.use((req, res, next) =>{
+// 	res.render('maintenance.hbs');
+// });
 
 app.get("/", (req, res) =>{ // contains two arguments requests and response
 	//send HTML
@@ -53,7 +53,7 @@ app.get("/", (req, res) =>{ // contains two arguments requests and response
 	//send JSON
 	res.render('home.hbs',{
 		welcomeMessage:' Hey Anshik Welcome to Express Home Page',
-		pageTitle: 'About Page',
+		pageTitle: 'Home Page',
 	});
 });
 
@@ -65,13 +65,22 @@ app.get('/about',(req,res) =>{
 	});
 });
 
-app.get('/bad',(req,res) =>{
-
-	res.send({
-		'errorMessage':'Unable to fulfill the request'
-	})
-	
+app.get('/project',(req,res) =>{
+	//res.send("About Page");
+	res.render('project.hbs',{
+		welcomeMessage:' Hey Anshik Welcome to Express Project Page',
+		pageTitle: 'Projects Page',
+		text: 'Here you will find all of Express project',
+	});
 });
+
+// app.get('/bad',(req,res) =>{
+
+// 	res.send({
+// 		'errorMessage':'Unable to fulfill the request'
+// 	})
+	
+// });
 
 
 app.listen(port, ()=>{
